@@ -22,5 +22,10 @@ namespace pet_hotel.Controllers
         public IEnumerable<PetOwner> GetPets() {
             return new List<PetOwner>();
         }
+
+        [HttpGet]
+        public IEnumerable<PetOwner> GetPetOwners(){
+            return _context.PetOwners
+        }
     }
 }
