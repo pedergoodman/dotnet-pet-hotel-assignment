@@ -59,7 +59,7 @@ namespace pet_hotel.Controllers
             _context.Add(pet);
             _context.SaveChanges();
             
-            return CreatedAtAction(nameof(CreatePet), new {id = pet.ID}, pet);
+            return CreatedAtAction(nameof(CreatePet), new {id = pet.Id}, pet);
         }
 
 
