@@ -8,7 +8,9 @@ namespace pet_hotel
     public class PetOwner {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public int Pets { get; set; }
+        public string EmailAddress { get; set; }
+        public int PetCount { get; set; }
     }
 }
+
+

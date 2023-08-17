@@ -2,7 +2,7 @@
 
 namespace pet_hotel.Migrations
 {
-    public partial class PetOwnerTable : Migration
+    public partial class CreatePetOwnersTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
