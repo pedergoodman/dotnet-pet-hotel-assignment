@@ -23,7 +23,7 @@ namespace pet_hotel.Controllers
         [HttpGet]
         public IEnumerable<Pet> GetPets()
         {
-            return _context.Pet
+            return _context.Pets
 
             .Include(pet => pet.OwnedBy);
         }
@@ -67,7 +67,7 @@ namespace pet_hotel.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletePet(int id)
         {
-            Pet pet = _context.Pet.Find(id);
+            Pet pet = _context.Pets.Find(id);
 
             _context.Remove(pet);
             _context.SaveChanges(); // 204
