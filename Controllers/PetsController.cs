@@ -25,7 +25,7 @@ namespace pet_hotel.Controllers
         {
             return _context.Pets
 
-            .Include(pet => pet.OwnedBy);
+            .Include(pet => pet.petOwner);
         }
         
 
