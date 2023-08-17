@@ -23,8 +23,11 @@ namespace pet_hotel.Controllers
         [HttpGet]
         public IEnumerable<Pet> GetPets()
         {
-            return _context.Pets;
+            return _context.Pet
+
+            .Include(pet => pet.OwnedBy);
         }
+        
 
 
         // [HttpGet]
