@@ -15,14 +15,19 @@ namespace pet_hotel.Controllers
     public class PetsController : ControllerBase
     {
         private readonly ApplicationContext _context;
-        public PetsController(ApplicationContext context) {
+        public PetsController(ApplicationContext context)
+        {
             _context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Pet> GetPets(){
-            return _context.Pets;
+        public IEnumerable<Pet> GetPets()
+        {
+            return _context.Pet
+
+            .Include(pet => pet.OwnedBy);
         }
+        
 
 
         // [HttpGet]
@@ -51,14 +56,24 @@ namespace pet_hotel.Controllers
 
 
         [HttpPost]
-        public IActionResult CreatePet(Pet pet) {
+        public IActionResult CreatePet(Pet pet)
+        {
             _context.Add(pet);
             _context.SaveChanges();
-            
-            return CreatedAtAction(nameof(CreatePet), new {id = pet.Id}, pet);
+
+            return CreatedAtAction(nameof(CreatePet), new { id = pet.Id }, pet);
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeletePet(int id)
+        {
+            Pet pet = _context.Pet.Find(id);
 
+            _context.Remove(pet);
+            _context.SaveChanges(); // 204
+
+            return Ok(); // 200
+        }
 
     }
 }
