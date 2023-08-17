@@ -23,7 +23,10 @@ namespace pet_hotel.Controllers
             return new List<PetOwner>();
         }
 
-
+        [HttpGet]
+        public IEnumerable<PetOwner> GetPetOwners(){
+            return _context.PetOwners
+        }
 
         [HttpPost]
         public IActionResult CreatePetOwner(PetOwner petOwner) {
