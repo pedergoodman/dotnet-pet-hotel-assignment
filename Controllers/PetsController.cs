@@ -27,7 +27,7 @@ namespace pet_hotel.Controllers
         }
 
 
-        
+
 
         // [HttpGet]
         // [Route("test")]
@@ -52,5 +52,17 @@ namespace pet_hotel.Controllers
 
         //     return new List<Pet>{ newPet1, newPet2};
         // }
+
+
+        [HttpPost]
+        public IActionResult CreatePet(Pet pet) {
+            _context.Add(pet);
+            _context.SaveChanges();
+            
+            return CreatedAtAction(nameof(CreatePet), new {id = pet.ID}, pet);
+        }
+
+
+
     }
 }
