@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace pet_hotel
 {
-    public enum PetBreedType {
+    public enum PetBreedType
+    {
         Shepherd,
         Poodle,
         Bulldog,
@@ -15,7 +16,8 @@ namespace pet_hotel
         Labrador,
         Retriever,
     }
-    public enum PetColorType {
+    public enum PetColorType
+    {
         Black,
         White,
         Golden,
@@ -25,10 +27,13 @@ namespace pet_hotel
     public class Pet
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
-         public bool CheckIn { get; set; }
-         [ForeignKey("ownedBy")]
-         public int OwnerId { get; set; }
+        public bool CheckIn { get; set; }
+        [ForeignKey("OwnedBy")]
+        public int OwnerId { get; set; }
+
+        public PetOwner OwnedBy { get; set; }
 
     }
 }
