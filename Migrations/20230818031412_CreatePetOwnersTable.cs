@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace pet_hotel.Migrations
 {
-    public partial class CreatePetsTable : Migration
+    public partial class CreatePetOwnersTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
